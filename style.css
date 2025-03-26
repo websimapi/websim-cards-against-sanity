@@ -1,0 +1,228 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+#app {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Lobby Styles */
+.lobby-container {
+  text-align: center;
+}
+
+#player-list ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+#player-list li {
+  display: flex;
+  align-items: center;
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+#player-list img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+#host-settings {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+#host-settings label {
+    margin-right: 10px;
+}
+
+#host-settings input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#host-settings button, #next-round-button, #start-game-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#host-settings button:hover, #next-round-button:hover, #start-game-button:hover {
+  background-color: #0056b3;
+}
+
+/* Game Styles */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 100px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+  position: relative; /* For potential future additions like card numbers */
+}
+
+.black-card {
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  max-width: 300px;
+  margin: 0 auto; /* Center the black card */
+}
+
+.white-card {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.white-card:hover:not(.submitted):not(.revealed) {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.white-card.selected {
+    border: 2px solid #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.white-card.submitted {
+    cursor: default;
+    background-color: #e9ecef; /* Slightly greyed out */
+}
+
+.white-card.revealed {
+    cursor: pointer; /* Czar can click */
+     background-color: #fff; /* Back to white */
+}
+.white-card.revealed.winning {
+    border: 3px solid gold;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+}
+
+
+.hand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.hand .white-card {
+  flex: 0 0 150px; /* Fixed width for hand cards */
+   min-height: 150px;
+}
+
+
+#submissions-area {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+#submitted-cards {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   justify-content: center;
+   margin-top: 10px;
+}
+
+#submitted-cards .white-card {
+   flex: 0 0 150px;
+   min-height: 150px;
+}
+
+#czar-controls {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #ffc107; /* Warning yellow */
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#winner-display {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #d4edda; /* Success green */
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    color: #155724;
+}
+
+#winner-display p {
+    margin: 5px 0;
+}
+
+#scoreboard {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+#scoreboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+#scoreboard li {
+    padding: 5px 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+}
+#scoreboard li:last-child {
+    border-bottom: none;
+}
+#scoreboard .score {
+    font-weight: bold;
+}
+
+/* Utility */
+.hidden {
+    display: none;
+}
+
